@@ -96,7 +96,7 @@ $(document).ready(function() {
   });
   
   //GET TOTAL
-   function getTotal() {
+  function getTotal() {
     var answer = eval(fullString);
     if (isFinite(answer)) {
     $(".total").html(answer);
@@ -104,7 +104,8 @@ $(document).ready(function() {
     if(answer >= 0) inputs.push(answer)
     else inputs.push('-', Math.abs(answer));
     } else {
-      $('.total').html('Cannot divide by 0!')
+      $('.total').html('Cannot divide by 0!');
+      inputs = [];
     }
     update();
   } 
