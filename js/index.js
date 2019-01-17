@@ -96,11 +96,16 @@ $(document).ready(function() {
   });
   
   //GET TOTAL
-  function getTotal() {
-    $(".total").html(eval(fullString));
+   function getTotal() {
+    var answer = eval(fullString);
+    if (isFinite(answer)) {
+    $(".total").html(answer);
     inputs.push("=");
-    if(eval(fullString) >= 0) inputs.push(eval(fullString))
-    else inputs.push('-', Math.abs(eval(fullString)));
+    if(answer >= 0) inputs.push(answer)
+    else inputs.push('-', Math.abs(answer));
+    } else {
+      $('.total').html('Cannot divide by 0!')
+    }
     update();
   } 
   
